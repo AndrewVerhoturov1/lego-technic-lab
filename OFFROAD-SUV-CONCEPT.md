@@ -1,6 +1,6 @@
 # Classic Off-Road SUV Concept
 
-Status: concept / parameters may evolve during the build.
+Status: active concept / iterative build.
 
 ## Core idea
 
@@ -10,70 +10,97 @@ A custom classic off-road SUV inspired by a blend of:
 - Toyota Land Cruiser 70
 - Toyota Land Cruiser 80
 
-The goal is not to build an exact scale replica of any single vehicle. The project should keep the proportions and character of a classic 1980s–1990s off-road SUV while remaining a custom engineering build.
+The goal is not an exact scale replica of any single vehicle. The vehicle should look and behave like a moderately prepared 1980s–1990s off-road SUV, while remaining a custom engineering project.
 
-The general repository philosophy from `PHILOSOPHY.md` applies: LEGO Technic is the primary construction system and interface standard, but custom 3D-printed parts, adapted third-party mechanisms, purchased non-LEGO components, custom electronics, and modified parts are allowed where they improve the engineering result.
+The general repository philosophy in `PHILOSOPHY.md` applies: LEGO Technic is the primary construction system and interface standard, while custom 3D-printed parts, adapted third-party mechanisms, purchased non-LEGO components, custom ESP32 electronics and modified parts are allowed where they improve the engineering result.
 
-## Fixed wheel basis
+## Fixed constants
 
-The wheel size is the main dimensional constant for the project.
+At the current stage only two dimensional parameters are frozen. Other vehicle dimensions must be developed around them.
 
-- Wheel diameter: **62 mm**
-- LEGO Technic equivalent: **7.75 pins** in diameter
-- Target visual interpretation: approximately **33-inch off-road tires** on a real vehicle
-- Approximate resulting scale: **1:13.5**
+### 1. Wheels
 
-All body dimensions should be derived from this wheel size rather than choosing the body first and fitting the wheels afterward.
+- Wheel/tire set currently selected for the project
+- Tire outer diameter: **approximately 62 mm**
+- Equivalent diameter in LEGO Technic pitch: **approximately 7.75 pins**
+- The wheels are intentionally relatively large for the vehicle, representing an off-road-prepared rather than stock SUV
+- These wheels are a project constant and the body is to be proportioned around them
 
-## Preliminary vehicle dimensions
+### 2. Track width
 
-Target dimensions for the custom SUV:
+- Front track width: **17 pins**
+- Metric equivalent: **136 mm**
+- Track is measured **between the center planes of the left and right wheels**
+- Half-track from the longitudinal vehicle centerline to each wheel center plane: **68 mm / 8.5 pins**
+- This value is a project constant for the front suspension geometry
 
-- Overall length: **about 42 pins** (~336 mm)
-- Body width: **about 17 pins** (~136 mm)
-- Body height: **about 17 pins** (~136 mm), subject to body development
-- Wheelbase: **about 25 pins** (~200 mm)
-- Track width: **about 14–15 pins** measured approximately between wheel centers; exact value remains to be determined by suspension and hub geometry
-- Main-frame ground clearance target: **about 3 pins**
-- Clearance below the rear differential housing will naturally be lower, approximately **1.5–2 pins**, depending on the final axle design
+The suspension and hub geometry must be designed to achieve this wheel-center track, rather than defining the track from the outer faces of hubs or other individual parts.
 
-These numbers are a starting geometry, not immutable final dimensions. The wheel diameter is the important constant; the remaining dimensions may be adjusted during prototyping.
+## Current proportion direction — not fixed
+
+The following dimensions are current working targets only. They are useful for proportioning and physical mock-ups, but are explicitly not constants yet:
+
+- Overall length: roughly **45–47 pins**
+- Body width: roughly **19 pins**
+- Body height: roughly **18–19 pins**
+- Wheelbase: roughly **27–28 pins**
+
+A convenient current visual target is approximately **46 × 19 × 18 pins** with a wheelbase around **28 pins**.
+
+These values may change after suspension, chassis and body mock-ups. Only the 62 mm wheel diameter and 17-pin front track are frozen at this stage.
 
 ## Suspension architecture
 
-The suspension layout is already chosen at the concept level.
+The suspension layout is already chosen at concept level.
 
 ### Front
 
 - **Independent front suspension (IFS)**
-- Exact geometry, control-arm layout, hubs, steering and driveshaft solution will be developed during the build
+- Front wheel-center track: **17 pins / 136 mm**
+- Exact control-arm geometry, hub/knuckle design, steering geometry, suspension travel, driveshaft solution and spring/damper arrangement will be developed during the build
+- The standard LEGO-compatible wheel hub interface may be used where useful, but custom or adapted hub components are allowed under the repository philosophy
 
 ### Rear
 
 - **Solid/live rear axle**
-- Exact locating links, springs, shocks, differential and axle housing design will be developed later
+- Exact axle housing, differential, locating links, springs, dampers and driveshaft arrangement will be developed later
+- Rear track is not yet frozen; it should visually and mechanically match the vehicle once the rear axle is designed
 
-This mixed layout is intentional: independent suspension at the front and a live axle at the rear.
+The mixed layout — independent front suspension and a live rear axle — is intentional.
+
+## Design character
+
+The intended visual and mechanical character is:
+
+- classic boxy SUV proportions from the late 1980s/1990s
+- stylistic middle ground between Cherokee XJ, Land Cruiser 70 and Land Cruiser 80
+- moderate off-road preparation rather than an extreme trophy/trial vehicle
+- slightly oversized off-road tires relative to a stock vehicle
+- practical ground clearance and visible suspension travel
+- engineering function takes priority over strict LEGO purity
 
 ## Open design decisions
 
-The following are deliberately not fixed yet and should be developed iteratively during the project:
+The following are deliberately left open and should be decided iteratively during prototyping:
 
+- exact body dimensions and final wheelbase
+- rear track width
+- chassis/frame architecture
+- suspension arm dimensions and travel
+- steering geometry
+- wheel hubs, bearings and knuckles
 - drivetrain layout
 - RWD / 4WD implementation
 - motor type and gearing
 - differential design
 - transfer case
-- steering mechanism
-- suspension travel
+- rear axle construction
 - spring and damper choice
-- wheel hubs and bearings
-- chassis architecture
 - body construction method
 - ESP32 control architecture
 - motor drivers
 - battery system
 - sensors, lighting and telemetry
-- use of LEGO, printed, modified or purchased parts for each individual subsystem
+- which individual parts are LEGO, purchased, modified, adapted from RC mechanisms or custom 3D-printed
 
-The project should remain flexible: decisions are to be made as physical prototypes reveal what works best.
+The project is intentionally iterative: physical prototypes and CAD experiments should determine the remaining geometry and mechanisms.
